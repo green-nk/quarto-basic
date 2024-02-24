@@ -162,3 +162,5 @@ cython_debug/
 # Quarto
 /.quarto/
 /_site/
+intro_files/
+intro.html

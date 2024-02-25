@@ -364,6 +364,29 @@ Figure&nbsp;2: Correlation between sepal length and petal length
 </div>
 <p>As shown in <a href="#fig-sepal-length-petal-length-correlation" class="quarto-xref">Figure&nbsp;2</a>, there is a linear relationship in <em>versicolor</em> and <em>virginica</em>. Though, this is not much clear for <em>setosa</em>. In addition, in each <code>target</code> group, their <code>petal length</code> and <code>sepal length</code> are in different range especially for <code>petal length</code>. <em>virginica</em> is likely to be the biggest in length and <em>setosa</em> is the smallest one.</p>
 <p>What we can conclue that <code>petal length</code> looks like another important feature for modelling. However, when we use both <code>sepal length</code> and <code>petal length</code>, we should be careful of <a href="https://en.wikipedia.org/wiki/Multicollinearity">multicollinearity</a>.</p>
+<p>What about on the <code>sepal width</code> and <code>petal width</code>?</p>
+<div id="cell-fig-sepal-width-petal-width-correlation" class="cell fig-cap-location-bottom" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5" data-cap-location="bottom"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>_, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>), sharey<span class="op">=</span><span class="va">True</span>, sharex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, (n, g) <span class="kw">in</span> <span class="bu">enumerate</span>(grouped_df):</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    g.plot(x<span class="op">=</span><span class="st">"sepal width"</span>, y<span class="op">=</span><span class="st">"petal width"</span>, kind<span class="op">=</span><span class="st">"scatter"</span>, ax<span class="op">=</span>axes[i], title<span class="op">=</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-sepal-width-petal-width-correlation" class="quarto-figure quarto-figure-center quarto-float anchored" data-cap-location="bottom" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sepal-width-petal-width-correlation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-sepal-width-petal-width-correlation-output-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sepal-width-petal-width-correlation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Correlation between sepal width and petal width
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>You will see that from <a href="#fig-sepal-width-petal-width-correlation" class="quarto-xref">Figure&nbsp;3</a>, it has the similar behaviors between <code>sepal width</code> and <code>petal width</code> like in <a href="#fig-sepal-length-petal-length-correlation" class="quarto-xref">Figure&nbsp;2</a>. Therefore, they are the other interesting features to the model.</p>
 
 
 </section>

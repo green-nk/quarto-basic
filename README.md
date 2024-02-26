@@ -30,8 +30,8 @@ To successfully orchestrate sharable documents using *Quarto*, you need to have 
 Basic *Quarto* workflow is simply these 3 steps:
 
 ```mermaid
-flowchart LR
-  A[Authoring] --> B[Rendering] --> C[Publishing]
+flowchart LR;
+  A[Authoring] --> B[Rendering] --> C[Publishing];
 ```
 
 Let's break down what we have to do in each step by
@@ -119,6 +119,8 @@ Let's break down what we have to do in each step by
     * Check out and push `gh-pages` branch to create a source branch.
     * Set up `gh-pages` as a source branch for *GitHub Pages* in **Settings** : **Pages**.
 
+    And *GitHub Pages* needs to have an `index.html` as a default to be able to host a webpage. Therefore, if your website contains multiple pages, you need to have one file named `index.html` so that *GitHub Pages* can publish what so called "homepage" sucessfully.
+
 All the steps are repeating as the development continues. It is also updating the project as a **release** while the source code changes along the way.
 
 Using help for *Quarto* commands.
@@ -127,6 +129,8 @@ Using help for *Quarto* commands.
 # Documetation for Quarto commands
 quarto --help
 ```
+
+#### ML/DL projects
 
 ### CI/CD with GitHub Actions
 

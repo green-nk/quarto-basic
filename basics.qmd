@@ -1,0 +1,20 @@
+---
+title: Quarto Concepts
+---
+
+## Basic Concepts
+
+Mostly *Quarto* recommends using `.qmd` which in a variant of *Markdown* file to create a document but there are options to document your code within `.ipynb` notebook using the [VS Code Notebook Editor](https://quarto.org/docs/tools/vscode.html#notebook-editor) as well as using the [JupyterLab](https://quarto.org/docs/tools/jupyter-lab.html). The latter will provide a complete workflow to document projects related to software development and data science.
+
+### Documentation
+
+There are several types of documentation that can be created using *Quarto*. These are listed as followed:
+
+* [Document](https://quarto.org/docs/get-started/authoring/) — The basic component which contains only a `.qmd` file or `.ipynb` notebook. This can be published like a single page website.
+* [Websites](https://quarto.org/docs/websites/) — Publish collections of documents as a website. Websites support multiple forms of navigation and full-text search.
+* [Blogs](https://quarto.org/docs/websites/website-blog.html) — Create a blog with an about page, flexible post listings, categories, RSS feeds, and over twenty themes.
+* [Presentations](https://quarto.org/docs/presentations/) — Author PowerPoint, Beamer, and Revealjs presentations using the same syntax you’ve learned for creating documents.
+* [Books](https://quarto.org/docs/books/) — Create books and manuscripts in print (PDF, MS Word) and online (HTML, ePub) formats.
+* [Interactivity](https://quarto.org/docs/interactive/) — Include interactive components to help readers explore the concepts and data you are presenting more deeply.
+
+To be more reproducible and more organized, *Quarto* should not be used as a single **Document** even if there is a single document file. Instead, it is better to publish collections of it in a **Website** style because it is well-documented and more suitable for hosting online.

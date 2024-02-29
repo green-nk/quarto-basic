@@ -1,0 +1,17 @@
+---
+title: References
+---
+
+Here is a list of useful resources:
+
+* **Markdown Syntax and Tools**
+    * [Markdown Basic Syntax](https://www.markdownguide.org/basic-syntax/)
+    * [Mermaid Diagramming and Charting Tool](https://mermaid.js.org/intro/)
+
+* **Quarto Documentation**
+    * [How to get started with Quarto](https://quarto.org/docs/get-started/)
+    * [Comprehensive guide to using Quarto](https://quarto.org/docs/guide/)
+    * [GitHub Actions for Quarto](https://github.com/quarto-dev/quarto-actions/)
+
+* **Quarto Tutorials and Examples**
+    * [Making Sharable Documents with Quarto](https://openscapes.github.io/quarto-website-tutorial/)

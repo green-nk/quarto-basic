@@ -1,0 +1,8 @@
+---
+title: Introduction to Quarto
+subtitle: Analyze. Share. Reproduce. You have a story to tell with data — Tell it with Quarto.
+---
+
+## Introduction
+
+*Quarto* is an open-source scientific and technical publishing system. It aims at making knowledge sharing more dynamic, more accessible and more reproducible through a complete workflow and best practices. My aim is to use *Quarto* as an orchestration tool for knowledge repos. This website can act as a starting template for documenting projects in various area of interests.

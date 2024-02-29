@@ -1,0 +1,122 @@
+---
+title: Quarto Workflow
+---
+
+To successfully orchestrate sharable documents using *Quarto*, you need to have a good workflow and in order to have that we need to first understand components and commands that *Quarto* has.
+
+## Overview
+
+Basic *Quarto* workflow is simply these 3 steps:
+
+```mermaid
+flowchart LR;
+  A[Authoring] --> B[Rendering] --> C[Publishing];
+```
+
+## Step-by-Step Workflow
+
+Let's break down what we have to do in each step by
+
+1. **Authoring** — Usually this step is an iterative approach. You can imagine it like you are in a development phase of your project. What you have to do is code execuation or more specifically:
+    
+    > Code Commit then Repeat.
+  
+    The difference when you have *Quarto* is you need to add some documentation along the way while you developing your code. Therefore, you will need to see changes in both of your code and documentation version of it. To do that using the command below.
+
+    ```bash
+    # Preview the whole project in the current directory
+    quarto preview
+    ```
+
+    In order to preview a report for an individual file.
+
+    ```bash
+    # Preview only for an index file
+    quarto preview index.ipynb
+    ```
+
+    What *Quarto* does behind the scene is that it renders files and watches those for any changes. Some output files may be generated such as `.quarto` and `_site` folder in case of a website project. Those files are the way *Quarto* uses to keep track of your project (code, outputs and documentation) and be able to provide a live preview for your development.
+  
+    Note that it is best practice to have a version control service such as [GitHub](https://github.com/) to keep track of your code by the beginning of your project. In addition, you should add a `.gitignore` file contains both `.quarto` and `_site` if you want to use *Quarto* to render and publish those contents.
+
+    Moreover, *Quarto* uses a `_quarto.yml` file to configure metadata about your project. For example, if your project is a website, `_quarto.yml` may contain information about a title or theme. Also, it can be the place where configurations on rendering files are.
+
+    In sum, there are processes within authoring itself — **Execution**, **Preview** and **Project Metadata**.
+
+2. **Rendering** — This process is about generating a report-like document for each executable files. A fully re-rendering is requrired as to have all changes reflected before publishing.
+
+    ```bash
+    # Render the whole project in the current directory
+    quarto render
+    ```
+
+    In order to render only an individual file.
+
+    ```bash
+    # Render only for an index file
+    quarto render index.ipynb
+    ```
+
+    Note that *Quarto* has rendered targets by default to be only executable files listed here: `.qmd`, `,ipynb`, `.md` and `.Rmd`. See the [Render Targets](https://quarto.org/docs/websites/#render-targets) configuration.
+
+    If you want to execute a report on-the-fly. Use `--execute` flag.
+
+    ```bash
+    # Execute and render the whole project in the current directory
+    quarto render --execute
+    
+    # Execute and render only an index file
+    quarto render index.ipynb --execute
+    ```
+
+    Note that if you are using `--execute` flag and `_quarto.yml` is set to have something like [Freeze Option](https://quarto.org/docs/projects/code-execution.html#freeze), a `_freeze` directory will be created automatically to store the results of computations. Also, these results should be check in to version control.
+    
+    But What is `freeze`? — It is an option to denote that computational documents should be re-rendered. When `freeze` is set to `auto` or `true`, you do not to fully re-render the code or just re-render as needed. This makes your workflow more efficient.
+    
+    Anyway, in ML/DL projects, most of the time, you do not want to re-execute the code as it has already done by another cloud services like [Google Colab](https://colab.google/), [Kaggle](https://www.kaggle.com/) or [Amazon EC2](https://aws.amazon.com/ec2/) for faster training the models. So, the `--execute` flag will not be used and `_freeze` directory will never be created.
+    
+    Then What happens if we do not have the computation results in `_freeze`? — My understanding is all necessary files are still rendered in `_site` and `.quarto` and when you publish your project even `_site` and `.quarto` are ignored by a `.gitignore` file, Under the hood, *Quarto* is able to use those rendered files to be publish on the hosting service without depending on `_freeze`.
+
+    In sum, we do not need to pay attention to a `_freeze` directory as we still have rendered files in `_site` and `.quarto`. But, we can not ignore setting a `freeze` option to `auto` in `_quarto.yml` because it is important for efficint-sake that we are re-rendering only if source code changes.
+
+3. **Publishing** — This is another iterative step. It may required you to deploy your websites or documents several times before reaching the desired output. In my workflow, I will use [GitHub Pages](https://pages.github.com/) as a hosting service.
+    
+    All the steps are provided in [Publishing with GitHub Pages](https://quarto.org/docs/publishing/github-pages.html) but I will point out some interesting sections.
+
+    If you are not using Render to `docs` method to publish your website. You will need to publish using *Quarto*.
+
+    ```bash
+    # Publish on gh-pages branch
+    quarto publish gh-pages
+    ```
+
+    ```bash
+    # Publish a single document file
+    quarto publish gh-pages index.ipynb
+    ```
+
+    Note that you will need to follow these two steps before hand:
+    
+    * Check out and push `gh-pages` branch to create a source branch.
+    * Set up `gh-pages` as a source branch for *GitHub Pages* in **Settings** : **Pages**.
+
+    And *GitHub Pages* needs to have an `index.html` as a default to be able to host a webpage. Therefore, if your website contains multiple pages, you need to have one file named `index.html` so that *GitHub Pages* can publish what so called "homepage" sucessfully.
+
+All the steps are repeating as the development continues. It is also updating the project as a **release** while the source code changes along the way.
+
+Using help for *Quarto* commands.
+
+```bash
+# Documetation for Quarto commands
+quarto --help
+```
+
+### CI/CD with GitHub Actions
+
+Now, we manually publish the website to *GitHub Pages* but what if we want to remove this tedious process of running `quarto publish gh-pages`, [GitHub Actions](https://docs.github.com/en/actions) is what you want. It will automate integration processes like code checkout, running tests and building/packaging your code through `.github/workflows`. In other words, it will publish your website automatically triggered from commits.
+
+Note that you also need to change **Workflow permissions** in the **Actions** section of your repository **Settings** to be **Read and write permission** in order to allow *GitHub Actions* to trigger the workflow.
+
+Depending on how much you want **GitHub Actions** to automate your workflow. You are free to modify `.github/workflows/publish.yml` as you like. Now, I set up an automation to just **Rendering** and **Publishing** not re-executing the code. This is because most ML/DL projects are not feasible to be executing on CI/CD server! See the guide to [Publishing with Continuous Integration (CI)](https://quarto.org/docs/publishing/ci.html) to choose the one the fit your need.
+
+### ML/DL projects

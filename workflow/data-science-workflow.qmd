@@ -1,0 +1,5 @@
+---
+title: Data Science Projects
+---
+
+Mostly, for this type of project especially in ML/DL, the additional steps and tools are required. This makes the workflow more complicated. Here is my guide to streamline the workflow so that any data science project can be run and documented smoothly.

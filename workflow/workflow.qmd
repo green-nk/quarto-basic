@@ -8,7 +8,7 @@ To successfully orchestrate sharable documents using *Quarto*, you need to have 
 
 Basic *Quarto* workflow is simply these 3 steps:
 
-```mermaid
+```{mermaid}
 flowchart LR;
   A[Authoring] --> B[Rendering] --> C[Publishing];
 ```
@@ -36,7 +36,7 @@ Let's break down what we have to do in each step by
     ```
 
     What *Quarto* does behind the scene is that it renders files and watches those for any changes. Some output files may be generated such as `.quarto` and `_site` folder in case of a website project. Those files are the way *Quarto* uses to keep track of your project (code, outputs and documentation) and be able to provide a live preview for your development.
-  
+
     Note that it is best practice to have a version control service such as [GitHub](https://github.com/) to keep track of your code by the beginning of your project. In addition, you should add a `.gitignore` file contains both `.quarto` and `_site` if you want to use *Quarto* to render and publish those contents.
 
     Moreover, *Quarto* uses a `_quarto.yml` file to configure metadata about your project. For example, if your project is a website, `_quarto.yml` may contain information about a title or theme. Also, it can be the place where configurations on rendering files are.
@@ -104,12 +104,9 @@ Let's break down what we have to do in each step by
 
 All the steps are repeating as the development continues. It is also updating the project as a **release** while the source code changes along the way.
 
-Using help for *Quarto* commands.
-
-```bash
-# Documetation for Quarto commands
-quarto --help
-```
+:::{.callout-tip}
+Using `quarto --help` command for *Quarto* documentation.
+:::
 
 ### CI/CD with GitHub Actions
 
@@ -118,5 +115,3 @@ Now, we manually publish the website to *GitHub Pages* but what if we want to re
 Note that you also need to change **Workflow permissions** in the **Actions** section of your repository **Settings** to be **Read and write permission** in order to allow *GitHub Actions* to trigger the workflow.
 
 Depending on how much you want **GitHub Actions** to automate your workflow. You are free to modify `.github/workflows/publish.yml` as you like. Now, I set up an automation to just **Rendering** and **Publishing** not re-executing the code. This is because most ML/DL projects are not feasible to be executing on CI/CD server! See the guide to [Publishing with Continuous Integration (CI)](https://quarto.org/docs/publishing/ci.html) to choose the one the fit your need.
-
-### ML/DL projects

@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://green-nk.github.io/quarto-basic/workflow/data-science-workflow.html</loc>
+    <lastmod>2024-02-29T09:13:11.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://green-nk.github.io/quarto-basic/basics/basics.html</loc>
+    <lastmod>2024-02-29T09:13:11.406Z</lastmod>
+  </url>
+  <url>
+    <loc>https://green-nk.github.io/quarto-basic/examples/intro.html</loc>
+    <lastmod>2024-02-29T09:13:11.410Z</lastmod>
+  </url>
+  <url>
     <loc>https://green-nk.github.io/quarto-basic/index.html</loc>
-    <lastmod>2024-02-26T16:27:10.763Z</lastmod>
+    <lastmod>2024-02-29T09:13:11.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://green-nk.github.io/quarto-basic/references.html</loc>
+    <lastmod>2024-02-29T09:13:11.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://green-nk.github.io/quarto-basic/workflow/workflow.html</loc>
+    <lastmod>2024-02-29T09:13:11.410Z</lastmod>
   </url>
 </urlset>

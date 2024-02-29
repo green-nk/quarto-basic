@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Quarto Basic - Introduction to Quarto</title>
+<title>Quarto Basic - Quarto Workflow</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,28 +20,63 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./basics/basics.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../workflow/data-science-workflow.html" rel="next">
+<link href="../basics/basics.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -69,6 +104,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -82,7 +120,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction to Quarto</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workflow/workflow.html">Workflow</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -97,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Quarto Basic</a> 
+      <a href="../">Quarto Basic</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/green-nk/quarto-basic" title="Source code" class="quarto-navigation-tool px-1" aria-label="Source code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -113,13 +151,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Quarto</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./basics/basics.html" class="sidebar-item-text sidebar-link">
+            <a href="../basics/basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Basics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -128,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./basics/basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../basics/basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto Concepts</span></a>
   </div>
 </li>
@@ -136,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./workflow/workflow.html" class="sidebar-item-text sidebar-link">
+            <a href="../workflow/workflow.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Workflow</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -145,13 +183,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workflow/workflow.html" class="sidebar-item-text sidebar-link">
+  <a href="../workflow/workflow.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Quarto Workflow</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workflow/data-science-workflow.html" class="sidebar-item-text sidebar-link">
+  <a href="../workflow/data-science-workflow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Science Projects</span></a>
   </div>
 </li>
@@ -159,7 +197,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./examples/intro.html" class="sidebar-item-text sidebar-link">
+            <a href="../examples/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Examples</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -168,7 +206,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./examples/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../examples/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Documentation with Quarto</span></a>
   </div>
 </li>
@@ -176,7 +214,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -190,7 +228,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#step-by-step-workflow" id="toc-step-by-step-workflow" class="nav-link" data-scroll-target="#step-by-step-workflow">Step-by-Step Workflow</a>
+  <ul class="collapse">
+  <li><a href="#cicd-with-github-actions" id="toc-cicd-with-github-actions" class="nav-link" data-scroll-target="#cicd-with-github-actions">CI/CD with GitHub Actions</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -199,8 +241,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to Quarto</h1>
-<p class="subtitle lead">Analyze. Share. Reproduce. You have a story to tell with data — Tell it with Quarto.</p>
+<h1 class="title">Quarto Workflow</h1>
 </div>
 
 
@@ -217,11 +258,96 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p><em>Quarto</em> is an open-source scientific and technical publishing system. It aims at making knowledge sharing more dynamic, more accessible and more reproducible through a complete workflow and best practices. My aim is to use <em>Quarto</em> as an orchestration tool for knowledge repos. This website can act as a starting template for documenting projects in various area of interests.</p>
+<p>To successfully orchestrate sharable documents using <em>Quarto</em>, you need to have a good workflow and in order to have that we need to first understand components and commands that <em>Quarto</em> has.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Basic <em>Quarto</em> workflow is simply these 3 steps:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR;
+  A[Authoring] --&gt; B[Rendering] --&gt; C[Publishing];
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="step-by-step-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="step-by-step-workflow">Step-by-Step Workflow</h2>
+<p>Let’s break down what we have to do in each step by</p>
+<ol type="1">
+<li><p><strong>Authoring</strong> — Usually this step is an iterative approach. You can imagine it like you are in a development phase of your project. What you have to do is code execuation or more specifically:</p>
+<blockquote class="blockquote">
+<p>Code Commit then Repeat.</p>
+</blockquote>
+<p>The difference when you have <em>Quarto</em> is you need to add some documentation along the way while you developing your code. Therefore, you will need to see changes in both of your code and documentation version of it. To do that using the command below.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview the whole project in the current directory</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In order to preview a report for an individual file.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview only for an index file</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview index.ipynb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>What <em>Quarto</em> does behind the scene is that it renders files and watches those for any changes. Some output files may be generated such as <code>.quarto</code> and <code>_site</code> folder in case of a website project. Those files are the way <em>Quarto</em> uses to keep track of your project (code, outputs and documentation) and be able to provide a live preview for your development.</p>
+<p>Note that it is best practice to have a version control service such as <a href="https://github.com/">GitHub</a> to keep track of your code by the beginning of your project. In addition, you should add a <code>.gitignore</code> file contains both <code>.quarto</code> and <code>_site</code> if you want to use <em>Quarto</em> to render and publish those contents.</p>
+<p>Moreover, <em>Quarto</em> uses a <code>_quarto.yml</code> file to configure metadata about your project. For example, if your project is a website, <code>_quarto.yml</code> may contain information about a title or theme. Also, it can be the place where configurations on rendering files are.</p>
+<p>In sum, there are processes within authoring itself — <strong>Execution</strong>, <strong>Preview</strong> and <strong>Project Metadata</strong>.</p></li>
+<li><p><strong>Rendering</strong> — This process is about generating a report-like document for each executable files. A fully re-rendering is requrired as to have all changes reflected before publishing.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Render the whole project in the current directory</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In order to render only an individual file.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Render only for an index file</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render index.ipynb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that <em>Quarto</em> has rendered targets by default to be only executable files listed here: <code>.qmd</code>, <code>,ipynb</code>, <code>.md</code> and <code>.Rmd</code>. See the <a href="https://quarto.org/docs/websites/#render-targets">Render Targets</a> configuration.</p>
+<p>If you want to execute a report on-the-fly. Use <code>--execute</code> flag.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute and render the whole project in the current directory</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="at">--execute</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute and render only an index file</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render index.ipynb <span class="at">--execute</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that if you are using <code>--execute</code> flag and <code>_quarto.yml</code> is set to have something like <a href="https://quarto.org/docs/projects/code-execution.html#freeze">Freeze Option</a>, a <code>_freeze</code> directory will be created automatically to store the results of computations. Also, these results should be check in to version control.</p>
+<p>But What is <code>freeze</code>? — It is an option to denote that computational documents should be re-rendered. When <code>freeze</code> is set to <code>auto</code> or <code>true</code>, you do not to fully re-render the code or just re-render as needed. This makes your workflow more efficient.</p>
+<p>Anyway, in ML/DL projects, most of the time, you do not want to re-execute the code as it has already done by another cloud services like <a href="https://colab.google/">Google Colab</a>, <a href="https://www.kaggle.com/">Kaggle</a> or <a href="https://aws.amazon.com/ec2/">Amazon EC2</a> for faster training the models. So, the <code>--execute</code> flag will not be used and <code>_freeze</code> directory will never be created.</p>
+<p>Then What happens if we do not have the computation results in <code>_freeze</code>? — My understanding is all necessary files are still rendered in <code>_site</code> and <code>.quarto</code> and when you publish your project even <code>_site</code> and <code>.quarto</code> are ignored by a <code>.gitignore</code> file, Under the hood, <em>Quarto</em> is able to use those rendered files to be publish on the hosting service without depending on <code>_freeze</code>.</p>
+<p>In sum, we do not need to pay attention to a <code>_freeze</code> directory as we still have rendered files in <code>_site</code> and <code>.quarto</code>. But, we can not ignore setting a <code>freeze</code> option to <code>auto</code> in <code>_quarto.yml</code> because it is important for efficint-sake that we are re-rendering only if source code changes.</p></li>
+<li><p><strong>Publishing</strong> — This is another iterative step. It may required you to deploy your websites or documents several times before reaching the desired output. In my workflow, I will use <a href="https://pages.github.com/">GitHub Pages</a> as a hosting service.</p>
+<p>All the steps are provided in <a href="https://quarto.org/docs/publishing/github-pages.html">Publishing with GitHub Pages</a> but I will point out some interesting sections.</p>
+<p>If you are not using Render to <code>docs</code> method to publish your website. You will need to publish using <em>Quarto</em>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Publish on gh-pages branch</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Publish a single document file</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages index.ipynb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that you will need to follow these two steps before hand:</p>
+<ul>
+<li>Check out and push <code>gh-pages</code> branch to create a source branch.</li>
+<li>Set up <code>gh-pages</code> as a source branch for <em>GitHub Pages</em> in <strong>Settings</strong> : <strong>Pages</strong>.</li>
+</ul>
+<p>And <em>GitHub Pages</em> needs to have an <code>index.html</code> as a default to be able to host a webpage. Therefore, if your website contains multiple pages, you need to have one file named <code>index.html</code> so that <em>GitHub Pages</em> can publish what so called “homepage” sucessfully.</p></li>
+</ol>
+<p>All the steps are repeating as the development continues. It is also updating the project as a <strong>release</strong> while the source code changes along the way.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using <code>quarto --help</code> command for <em>Quarto</em> documentation.</p>
+</div>
+</div>
+<section id="cicd-with-github-actions" class="level3">
+<h3 class="anchored" data-anchor-id="cicd-with-github-actions">CI/CD with GitHub Actions</h3>
+<p>Now, we manually publish the website to <em>GitHub Pages</em> but what if we want to remove this tedious process of running <code>quarto publish gh-pages</code>, <a href="https://docs.github.com/en/actions">GitHub Actions</a> is what you want. It will automate integration processes like code checkout, running tests and building/packaging your code through <code>.github/workflows</code>. In other words, it will publish your website automatically triggered from commits.</p>
+<p>Note that you also need to change <strong>Workflow permissions</strong> in the <strong>Actions</strong> section of your repository <strong>Settings</strong> to be <strong>Read and write permission</strong> in order to allow <em>GitHub Actions</em> to trigger the workflow.</p>
+<p>Depending on how much you want <strong>GitHub Actions</strong> to automate your workflow. You are free to modify <code>.github/workflows/publish.yml</code> as you like. Now, I set up an automation to just <strong>Rendering</strong> and <strong>Publishing</strong> not re-executing the code. This is because most ML/DL projects are not feasible to be executing on CI/CD server! See the guide to <a href="https://quarto.org/docs/publishing/ci.html">Publishing with Continuous Integration (CI)</a> to choose the one the fit your need.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -758,10 +884,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../basics/basics.html" class="pagination-link" aria-label="Basics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Basics</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./basics/basics.html" class="pagination-link" aria-label="Basics">
-        <span class="nav-page-text">Basics</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../workflow/data-science-workflow.html" class="pagination-link" aria-label="Data Science Projects">
+        <span class="nav-page-text">Data Science Projects</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

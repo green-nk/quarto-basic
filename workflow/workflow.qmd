@@ -172,14 +172,22 @@ The footer is optional and is used to reference issue tracker IDs (which in our 
 
 #### CHANGELOG Documentation
 
-After multiple commits and before pushing a release tag to a remote repository like *GitHub*, we need to document our changes into `CHANGELOG.md` file using the following command:
+After multiple commits/tags and before pushing a release tag to a remote repository like *GitHub*, we need to document our changes into `CHANGELOG.md` file using the following command:
 
 ```bash
 # Generate changelog into a CHANGELOG.md file
 git-cliff -o CHANGELOG.md
 ```
 
-Of course, you also want to skip commits for `CHANGELOG.md` as it will be automatically created to the release before publishing. To do this adding specific commits by their SHA1 value in the `.cliffignore` file. You can do that via a bash command:
+Also, you need to commit a change on `CHANGELOG.md` for a website to be rendered correctly.
+
+```bash
+# Commit auto-generated CHANGELOG.md file
+git add
+git commit -m "chore(release): update `CHANGELOG.md` for v0.0.1"
+```
+
+Of course, you also want to skip documenting commits for `CHANGELOG.md` as it will be automatically created to the release before publishing. To do this adding specific commits by their SHA1 value in the `.cliffignore` file. You can do that via a bash command:
 
 ```bash
 # Append the latest commit (a commit for CHANGELOG.md) to .cliffignore file

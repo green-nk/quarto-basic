@@ -15,3 +15,7 @@ Here is a list of useful resources:
 
 * **Quarto Tutorials and Examples**
     * [Making Sharable Documents with Quarto](https://openscapes.github.io/quarto-website-tutorial/)
+
+* **Version History and Changelog**
+    * [How to Write a Good Commit Message](https://herewecode.io/blog/a-beginners-guide-to-git-how-to-write-a-good-commit-message/)
+    * [What is a changelog and How to generate it](https://www.freecodecamp.org/news/a-beginners-guide-to-git-what-is-a-changelog-and-how-to-generate-it/)

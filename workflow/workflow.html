@@ -393,7 +393,7 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you are using <em>GitHub Actions</em> to automatically publish your documentation and you consider using <code>git tag</code> to release your documentation, it is better to only run your CI/CD pipeline when there is a new release on your documentation. Therefore, you need set <code>.github/workflows/publish.yml</code></p>
+<p>If you are using <em>GitHub Actions</em> to automatically publish your documentation and you consider using <code>git tag</code> to release your documentation, it is better to only run your CI/CD pipeline when there is a new release on your documentation. Therefore, you may need to develop in let say another branch such as <code>dev</code>. After you complete with your development, you <code>merge</code> it into <code>main</code> and <code>tag</code> your documentation for a release. This way, it is more organized and help reduce unleased changes to your documentation changelog.</p>
 </div>
 </div>
 <section id="commit-messages" class="level4">
@@ -445,7 +445,7 @@ Warning
 </section>
 <section id="changelog-documentation" class="level4">
 <h4 class="anchored" data-anchor-id="changelog-documentation">CHANGELOG Documentation</h4>
-<p>After multiple commits/tags and before pushing a release tag to a remote repository like <em>GitHub</em>, we need to document our changes into <code>CHANGELOG.md</code> file using the following command:</p>
+<p>After multiple commits, then tag a release and before pushing to a remote repository like <em>GitHub</em>, we need to document our changes into <code>CHANGELOG.md</code> file using the following command:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate changelog into a CHANGELOG.md file</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">git-cliff</span> <span class="at">-o</span> CHANGELOG.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Also, you need to commit a change on <code>CHANGELOG.md</code> for a website to be rendered correctly.</p>

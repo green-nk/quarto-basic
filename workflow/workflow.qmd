@@ -104,7 +104,7 @@ Let's break down what we have to do in each step by
 
 All the steps are repeating as the development continues. It is also updating the project as a **release** while the source code changes along the way.
 
-:::{.callout-tip}
+:::{.callout-note}
 Using `quarto --help` command for *Quarto* documentation.
 :::
 
@@ -115,3 +115,72 @@ Now, we manually publish the website to *GitHub Pages* but what if we want to re
 Note that you also need to change **Workflow permissions** in the **Actions** section of your repository **Settings** to be **Read and write permission** in order to allow *GitHub Actions* to trigger the workflow.
 
 Depending on how much you want **GitHub Actions** to automate your workflow. You are free to modify `.github/workflows/publish.yml` as you like. Now, I set up an automation to just **Rendering** and **Publishing** not re-executing the code. This is because most ML/DL projects are not feasible to be executing on CI/CD server! See the guide for [Publishing with Continuous Integration (CI)](https://quarto.org/docs/publishing/ci.html) to choose the one that fit your need.
+
+### CHANGELOG
+
+Throughout the project development, there are changes made along the way and it is the best practice to keep logging those changes too. The additional tool that I use is called [git-cliff](https://github.com/orhun/git-cliff). Note that In most changelog generator, it is required to `tag` your commits to be able to document date changes. So, the workflow to release a documentation website with version history is the following:
+
+```{mermaid}
+flowchart LR;
+  A[Code] --> B[Commit] --> C[Tag] --> D[Push];
+```
+
+The best practice is to do `git commit` frequently and when you want to release your code, using `git tag` to check out your code locally. After that, using `git push` to also check out your code to the remote repository.
+
+:::{.callout-tip}
+you can use for example, `git tag -a v0.0.1 -m "version 0.0.1 - soft launch"` to tag your code after a few commits. Also, you can save your development to a remote repository using `git push origin main` or release your code to the public via `git push origin v0.0.1` or push all tags using `git push origin --tags`.
+:::
+
+:::{.callout-warning}
+If you are using *GitHub Actions* to automatically publish your documentation and you consider using `git tag` to release your documentation, it is better to only run your CI/CD pipeline when there is a new release on your documentation. Therefore, you need set `.github/workflows/publish.yml` 
+:::
+
+#### Commit Messages
+
+*git-cliff* makes use of commit messages to automatically generate changelog for you. Therefore, it is necessary for those messages to have a consistency format something like this:
+
+```
+type(scope): subject
+
+optional body
+
+[optional footer(s)]
+```
+
+:::{.callout-tip}
+you can use `git commit` instead of `git commit -m type(scope): subject -m body -m flags`. This will prompt a text editor of your choice that makes you create a commit message easier.
+:::
+
+Mostly, what you want to keep changlog is your documentation as it is your knowledge repository. So, I will focus on which `type` and `scope` to be used for changing in your documentation. See the guide for a full [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) and a simplified version of [Git Commit Message Style Guide](https://udacity.github.io/git-styleguide/).
+
+There are 6 main `type`s that we will use for knowledge repository.
+
+* **feat:** A new feature, but in this case, it should be your new documentation like a new `.ipynb` notebook added to the repository.
+* **fix:** A bug fix like fixing an error on executable `.ipynb` notebook.
+* **refactor:** Refactoring production code such as changing navigation page in `_quarto.yml`.
+* **docs:** Changes to documentation such as updating some sections in the document or fixing document typo.
+* **style:** Formatting, removing a white-space, etc; no meaning of the code change
+* **chore:** Changes to configuration files like updating build tasks, package manager configuration; no production code change
+
+Next, `scope` can be any category you want but MUST consist of a noun describing a section of the codebase surrounded by parenthesis, e.g., `fix(sidebar):` or `docs(README):`.
+
+:::{.callout-warning}
+`scope` can be the most flexible part of a commit message. However, it is crucial for keeping it organized so that those commits are grouped into **human-readable categories**. This is the only thing that matters!
+:::
+
+The footer is optional and is used to reference issue tracker IDs (which in our case, it does not matter much). However, the most important footer convention is `BREAKING CHANGE:`. It introduces a breaking API change correlating with a major change in software development. Also, you could add `!` after the `type(scope)` to draw attention to the breaking change footer.
+
+#### CHANGELOG Documentation
+
+After multiple commits and before pushing a release tag to a remote repository like *GitHub*, we need to document our changes into `CHANGELOG.md` file using the following command:
+
+```bash
+# Generate changelog into a CHANGELOG.md file
+git-cliff -o CHANGELOG.md
+```
+
+Note that you can also keep unreleased changes in *CHANGELOG.md* file (if you do not `tag` your code before running this command), however it is not that useful because of the lack of date information.
+
+:::{.callout-note}
+Using `git-cliff --help` command for *git-cliff* documentation.
+:::

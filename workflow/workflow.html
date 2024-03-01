@@ -219,8 +219,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
         <li class="sidebar-item">
- <span class="menu-text">CHANGELOG.md</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../CHANGELOG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Changelog</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -445,6 +448,7 @@ Warning
 <p>After multiple commits and before pushing a release tag to a remote repository like <em>GitHub</em>, we need to document our changes into <code>CHANGELOG.md</code> file using the following command:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate changelog into a CHANGELOG.md file</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">git-cliff</span> <span class="at">-o</span> CHANGELOG.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Of course, you also want to skip commits for <code>CHANGELOG.md</code> as it will be automatically created to the release before publishing. To do this adding specific commits by their SHA1 value in the <code>.cliffignore</code> file.</p>
 <p>Note that you can also keep unreleased changes in <em>CHANGELOG.md</em> file (if you do not <code>tag</code> your code before running this command), however it is not that useful because of the lack of date information.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">

@@ -24,6 +24,7 @@ website:
         href: examples/intro.ipynb
         contents: "examples/*.ipynb"
       - references.qmd
+      - CHANGELOG.md
     tools:
       - icon: github
         href: https://github.com/green-nk/quarto-basic

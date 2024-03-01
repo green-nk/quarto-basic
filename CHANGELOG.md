@@ -2,13 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [0.0.6] - 2024-03-01
+
+### Documentation
+
+#### Workflow
+
+- Fix how to handle the  file in a release
 
 ### Miscellaneous Tasks
 
-#### Release
+#### .gitignore
 
-- Update CHANGELOG.md for v0.0.5
+- Ignore skip commits in  file
 
 ## [0.0.5] - 2024-03-01
 

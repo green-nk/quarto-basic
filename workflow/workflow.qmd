@@ -132,7 +132,7 @@ you can use for example, `git tag -a v0.0.1 -m "version 0.0.1 - soft launch"` to
 :::
 
 :::{.callout-warning}
-If you are using *GitHub Actions* to automatically publish your documentation and you consider using `git tag` to release your documentation, it is better to only run your CI/CD pipeline when there is a new release on your documentation. Therefore, you need set `.github/workflows/publish.yml` 
+If you are using *GitHub Actions* to automatically publish your documentation and you consider using `git tag` to release your documentation, it is better to only run your CI/CD pipeline when there is a new release on your documentation. Therefore, you may need to develop in let say another branch such as `dev`. After you complete with your development, you `merge` it into `main` and `tag` your documentation for a release. This way, it is more organized and help reduce unleased changes to your documentation changelog.
 :::
 
 #### Commit Messages

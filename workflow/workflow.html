@@ -218,6 +218,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">References</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+ <span class="menu-text">CHANGELOG.md</span>
+  </li>
     </ul>
     </div>
 </nav>
@@ -232,6 +235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#step-by-step-workflow" id="toc-step-by-step-workflow" class="nav-link" data-scroll-target="#step-by-step-workflow">Step-by-Step Workflow</a>
   <ul class="collapse">
   <li><a href="#cicd-with-github-actions" id="toc-cicd-with-github-actions" class="nav-link" data-scroll-target="#cicd-with-github-actions">CI/CD with GitHub Actions</a></li>
+  <li><a href="#changelog" id="toc-changelog" class="nav-link" data-scroll-target="#changelog">CHANGELOG</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -327,13 +331,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>And <em>GitHub Pages</em> needs to have an <code>index.html</code> as a default to be able to host a webpage. Therefore, if your website contains multiple pages, you need to have one file named <code>index.html</code> so that <em>GitHub Pages</em> can publish what so called “homepage” sucessfully.</p></li>
 </ol>
 <p>All the steps are repeating as the development continues. It is also updating the project as a <strong>release</strong> while the source code changes along the way.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -345,8 +349,119 @@ Tip
 <p>Now, we manually publish the website to <em>GitHub Pages</em> but what if we want to remove this tedious process of running <code>quarto publish gh-pages</code>, <a href="https://docs.github.com/en/actions">GitHub Actions</a> is what you want. It will automate integration processes like code checkout, running tests and building/packaging your code through <code>.github/workflows</code>. In other words, it will publish your website automatically triggered from commits.</p>
 <p>Note that you also need to change <strong>Workflow permissions</strong> in the <strong>Actions</strong> section of your repository <strong>Settings</strong> to be <strong>Read and write permission</strong> in order to allow <em>GitHub Actions</em> to trigger the workflow.</p>
 <p>Depending on how much you want <strong>GitHub Actions</strong> to automate your workflow. You are free to modify <code>.github/workflows/publish.yml</code> as you like. Now, I set up an automation to just <strong>Rendering</strong> and <strong>Publishing</strong> not re-executing the code. This is because most ML/DL projects are not feasible to be executing on CI/CD server! See the guide for <a href="https://quarto.org/docs/publishing/ci.html">Publishing with Continuous Integration (CI)</a> to choose the one that fit your need.</p>
+</section>
+<section id="changelog" class="level3">
+<h3 class="anchored" data-anchor-id="changelog">CHANGELOG</h3>
+<p>Throughout the project development, there are changes made along the way and it is the best practice to keep logging those changes too. The additional tool that I use is called <a href="https://github.com/orhun/git-cliff">git-cliff</a>. Note that In most changelog generator, it is required to <code>tag</code> your commits to be able to document date changes. So, the workflow to release a documentation website with version history is the following:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR;
+  A[Code] --&gt; B[Commit] --&gt; C[Tag] --&gt; D[Push];
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>The best practice is to do <code>git commit</code> frequently and when you want to release your code, using <code>git tag</code> to check out your code locally. After that, using <code>git push</code> to also check out your code to the remote repository.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>you can use for example, <code>git tag -a v0.0.1 -m "version 0.0.1 - soft launch"</code> to tag your code after a few commits. Also, you can save your development to a remote repository using <code>git push origin main</code> or release your code to the public via <code>git push origin v0.0.1</code> or push all tags using <code>git push origin --tags</code>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are using <em>GitHub Actions</em> to automatically publish your documentation and you consider using <code>git tag</code> to release your documentation, it is better to only run your CI/CD pipeline when there is a new release on your documentation. Therefore, you need set <code>.github/workflows/publish.yml</code></p>
+</div>
+</div>
+<section id="commit-messages" class="level4">
+<h4 class="anchored" data-anchor-id="commit-messages">Commit Messages</h4>
+<p><em>git-cliff</em> makes use of commit messages to automatically generate changelog for you. Therefore, it is necessary for those messages to have a consistency format something like this:</p>
+<pre><code>type(scope): subject
+
+optional body
+
+[optional footer(s)]</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>you can use <code>git commit</code> instead of <code>git commit -m type(scope): subject -m body -m flags</code>. This will prompt a text editor of your choice that makes you create a commit message easier.</p>
+</div>
+</div>
+<p>Mostly, what you want to keep changlog is your documentation as it is your knowledge repository. So, I will focus on which <code>type</code> and <code>scope</code> to be used for changing in your documentation. See the guide for a full <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> and a simplified version of <a href="https://udacity.github.io/git-styleguide/">Git Commit Message Style Guide</a>.</p>
+<p>There are 6 main <code>type</code>s that we will use for knowledge repository.</p>
+<ul>
+<li><strong>feat:</strong> A new feature, but in this case, it should be your new documentation like a new <code>.ipynb</code> notebook added to the repository.</li>
+<li><strong>fix:</strong> A bug fix like fixing an error on executable <code>.ipynb</code> notebook.</li>
+<li><strong>refactor:</strong> Refactoring production code such as changing navigation page in <code>_quarto.yml</code>.</li>
+<li><strong>docs:</strong> Changes to documentation such as updating some sections in the document or fixing document typo.</li>
+<li><strong>style:</strong> Formatting, removing a white-space, etc; no meaning of the code change</li>
+<li><strong>chore:</strong> Changes to configuration files like updating build tasks, package manager configuration; no production code change</li>
+</ul>
+<p>Next, <code>scope</code> can be any category you want but MUST consist of a noun describing a section of the codebase surrounded by parenthesis, e.g., <code>fix(sidebar):</code> or <code>docs(README):</code>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>scope</code> can be the most flexible part of a commit message. However, it is crucial for keeping it organized so that those commits are grouped into <strong>human-readable categories</strong>. This is the only thing that matters!</p>
+</div>
+</div>
+<p>The footer is optional and is used to reference issue tracker IDs (which in our case, it does not matter much). However, the most important footer convention is <code>BREAKING CHANGE:</code>. It introduces a breaking API change correlating with a major change in software development. Also, you could add <code>!</code> after the <code>type(scope)</code> to draw attention to the breaking change footer.</p>
+</section>
+<section id="changelog-documentation" class="level4">
+<h4 class="anchored" data-anchor-id="changelog-documentation">CHANGELOG Documentation</h4>
+<p>After multiple commits and before pushing a release tag to a remote repository like <em>GitHub</em>, we need to document our changes into <code>CHANGELOG.md</code> file using the following command:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate changelog into a CHANGELOG.md file</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">git-cliff</span> <span class="at">-o</span> CHANGELOG.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that you can also keep unreleased changes in <em>CHANGELOG.md</em> file (if you do not <code>tag</code> your code before running this command), however it is not that useful because of the lack of date information.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using <code>git-cliff --help</code> command for <em>git-cliff</em> documentation.</p>
+</div>
+</div>
 
 
+</section>
 </section>
 </section>
 

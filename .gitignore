@@ -7,9 +7,6 @@ __pycache__/
 
 # Data and output files
 .ipynb_checkpoints
-node_modules
-package-lock.json
-package.json
 
 # Quarto
 /.quarto/
@@ -17,3 +14,6 @@ package.json
 
 # Backup files
 _backup/
+
+# Configuration files
+cliff.toml

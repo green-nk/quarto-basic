@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.7] - 2024-03-01
+
+### Documentation
+
+#### Workflow
+
+- Add way to automatically add skipping commits to `.cliffignore` file
+
 ## [0.0.6] - 2024-03-01
 
 ### Documentation

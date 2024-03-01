@@ -148,7 +148,7 @@ optional body
 ```
 
 :::{.callout-tip}
-you can use `git commit` instead of `git commit -m type(scope): subject -m body -m flags`. This will prompt a text editor of your choice that makes you create a commit message easier.
+you can use `git commit` instead of `git commit -m type(scope): subject -m body -m flags`. This will prompt a text editor of your choice that makes you create a commit message easier. Another benefit on using `git commit` is you can use *Markdown* syntax to format your commit message.
 :::
 
 Mostly, what you want to keep changlog is your documentation as it is your knowledge repository. So, I will focus on which `type` and `scope` to be used for changing in your documentation. See the guide for a full [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) and a simplified version of [Git Commit Message Style Guide](https://udacity.github.io/git-styleguide/).
@@ -179,7 +179,12 @@ After multiple commits and before pushing a release tag to a remote repository l
 git-cliff -o CHANGELOG.md
 ```
 
-Of course, you also want to skip commits for `CHANGELOG.md` as it will be automatically created to the release before publishing. To do this adding specific commits by their SHA1 value in the `.cliffignore` file.
+Of course, you also want to skip commits for `CHANGELOG.md` as it will be automatically created to the release before publishing. To do this adding specific commits by their SHA1 value in the `.cliffignore` file. You can do that via a bash command:
+
+```bash
+# Append the latest commit (a commit for CHANGELOG.md) to .cliffignore file
+git rev-parse HEAD >> .cliffignore
+```
 
 Note that you can also keep unreleased changes in *CHANGELOG.md* file (if you do not `tag` your code before running this command), however it is not that useful because of the lack of date information.
 

@@ -414,7 +414,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>you can use <code>git commit</code> instead of <code>git commit -m type(scope): subject -m body -m flags</code>. This will prompt a text editor of your choice that makes you create a commit message easier.</p>
+<p>you can use <code>git commit</code> instead of <code>git commit -m type(scope): subject -m body -m flags</code>. This will prompt a text editor of your choice that makes you create a commit message easier. Another benefit on using <code>git commit</code> is you can use <em>Markdown</em> syntax to format your commit message.</p>
 </div>
 </div>
 <p>Mostly, what you want to keep changlog is your documentation as it is your knowledge repository. So, I will focus on which <code>type</code> and <code>scope</code> to be used for changing in your documentation. See the guide for a full <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> and a simplified version of <a href="https://udacity.github.io/git-styleguide/">Git Commit Message Style Guide</a>.</p>
@@ -445,10 +445,16 @@ Warning
 </section>
 <section id="changelog-documentation" class="level4">
 <h4 class="anchored" data-anchor-id="changelog-documentation">CHANGELOG Documentation</h4>
-<p>After multiple commits and before pushing a release tag to a remote repository like <em>GitHub</em>, we need to document our changes into <code>CHANGELOG.md</code> file using the following command:</p>
+<p>After multiple commits/tags and before pushing a release tag to a remote repository like <em>GitHub</em>, we need to document our changes into <code>CHANGELOG.md</code> file using the following command:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate changelog into a CHANGELOG.md file</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">git-cliff</span> <span class="at">-o</span> CHANGELOG.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Of course, you also want to skip commits for <code>CHANGELOG.md</code> as it will be automatically created to the release before publishing. To do this adding specific commits by their SHA1 value in the <code>.cliffignore</code> file.</p>
+<p>Also, you need to commit a change on <code>CHANGELOG.md</code> for a website to be rendered correctly.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Commit auto-generated CHANGELOG.md file</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"chore(release): update </span><span class="kw">`</span><span class="ex">CHANGELOG.md</span><span class="kw">`</span><span class="st"> for v0.0.1"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Of course, you also want to skip documenting commits for <code>CHANGELOG.md</code> as it will be automatically created to the release before publishing. To do this adding specific commits by their SHA1 value in the <code>.cliffignore</code> file. You can do that via a bash command:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Append the latest commit (a commit for CHANGELOG.md) to .cliffignore file</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rev-parse HEAD <span class="op">&gt;&gt;</span> .cliffignore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that you can also keep unreleased changes in <em>CHANGELOG.md</em> file (if you do not <code>tag</code> your code before running this command), however it is not that useful because of the lack of date information.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">

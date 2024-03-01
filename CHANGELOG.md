@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.10] - 2024-03-01
+
+### Documentation
+
+#### Workflow
+
+- Add suggesting `dev` brance for more efficient *GitHub Pages* rendering
+
+### Miscellaneous Tasks
+
+#### Publish
+
+- Fix CI/CD trigger to publish when pushing to main branch
+
 ## [0.0.9] - 2024-03-01
 
 ### Documentation

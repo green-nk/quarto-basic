@@ -172,7 +172,7 @@ The footer is optional and is used to reference issue tracker IDs (which in our 
 
 #### CHANGELOG Documentation
 
-After multiple commits/tags and before pushing a release tag to a remote repository like *GitHub*, we need to document our changes into `CHANGELOG.md` file using the following command:
+After multiple commits, then tag a release and before pushing to a remote repository like *GitHub*, we need to document our changes into `CHANGELOG.md` file using the following command:
 
 ```bash
 # Generate changelog into a CHANGELOG.md file

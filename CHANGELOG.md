@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.9] - 2024-03-01
+
+### Documentation
+
+#### Workflow
+
+- Fix typo on CHANGELOG documentation
+
 ## [0.0.8] - 2024-03-01
 
 ### Documentation

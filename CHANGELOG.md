@@ -2,109 +2,79 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.11] - 2024-12-31
+
+### 📚 Documentation
+
+- *(workflow)* Add tips on the Quarto workflow
+
 ## [0.0.10] - 2024-03-01
 
-### Documentation
+### 📚 Documentation
 
-#### Workflow
+- *(workflow)* Add suggesting `dev` brance for more efficient *GitHub Pages* rendering
 
-- Add suggesting `dev` brance for more efficient *GitHub Pages* rendering
+### ⚙️ Miscellaneous Tasks
 
-### Miscellaneous Tasks
-
-#### Publish
-
-- Fix CI/CD trigger to publish when pushing to main branch
+- *(publish)* Fix CI/CD trigger to publish when pushing to main branch
 
 ## [0.0.9] - 2024-03-01
 
-### Documentation
+### 📚 Documentation
 
-#### Workflow
-
-- Fix typo on CHANGELOG documentation
+- *(workflow)* Fix typo on CHANGELOG documentation
 
 ## [0.0.8] - 2024-03-01
 
-### Documentation
+### 📚 Documentation
 
-#### Workflow
-
-- Add detail workflow to using git-cliff smoothly
+- *(workflow)* Add detail workflow to using git-cliff smoothly
 
 ## [0.0.7] - 2024-03-01
 
-### Documentation
+### 📚 Documentation
 
-#### Workflow
-
-- Add way to automatically add skipping commits to `.cliffignore` file
+- *(workflow)* Add way to automatically add skipping commits to `.cliffignore` file
 
 ## [0.0.6] - 2024-03-01
 
-### Documentation
+### 📚 Documentation
 
-#### Workflow
+- *(workflow)* Fix how to handle the  file in a release
 
-- Fix how to handle the  file in a release
+### ⚙️ Miscellaneous Tasks
 
-### Miscellaneous Tasks
-
-#### .gitignore
-
-- Ignore skip commits in  file
+- *(.gitignore)* Ignore skip commits in  file
 
 ## [0.0.5] - 2024-03-01
 
-### Documentation
+### 📚 Documentation
 
-#### Workflow
-
-- Add documentation on how to handle the CHANGELOG.md in a release
+- *(workflow)* Add documentation on how to handle the CHANGELOG.md in a release
 
 ## [0.0.4] - 2024-03-01
 
-### Documentation
+### 📚 Documentation
 
-#### References
+- *(references)* Add git-cliff documentation like as a reference
+- *(sidebar)* Change to use CHANGELOG.md
+- *(workflow)* Add CHANGELOG documentation section
 
-- Add git-cliff documentation like as a reference
+### ⚙️ Miscellaneous Tasks
 
-#### Sidebar
-
-- Change to use CHANGELOG.md
-
-#### Workflow
-
-- Add CHANGELOG documentation section
-
-### Miscellaneous Tasks
-
-#### .gitignore
-
-- Ignore git-cliff configuration file
-
-#### Publish
-
-- Fix CI/CD trigger to publish only if v tag was pushed
+- *(.gitignore)* Ignore git-cliff configuration file
+- *(publish)* Fix CI/CD trigger to publish only if v tag was pushed
 
 ## [0.0.3] - 2024-03-01
 
-### Documentation
+### 📚 Documentation
 
-#### Config
-
-- Ignore `generate-changelog` file
-
-#### References
-
-- Add version history and changelog references
+- *(config)* Ignore `generate-changelog` file
+- *(references)* Add version history and changelog references
 
 ## [0.0.2] - 2024-02-29
 
-### Documentation
-
-#### Unscoped
+### 📚 Documentation
 
 - Ignore `git-chglog` configuration file
 

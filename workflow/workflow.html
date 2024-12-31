@@ -393,7 +393,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>you can use for example, <code>git tag -a v0.0.1 -m "version 0.0.1 - soft launch"</code> to tag your code after a few commits. Also, you can save your development to a remote repository using <code>git push origin main</code> or release your code to the public via <code>git push origin v0.0.1</code> or push all tags using <code>git push origin --tags</code>.</p>
+<p>you can use for example, <code>git tag -a v0.0.1 -m "version 0.0.1 - soft launch"</code> to tag your code after a few commits. Also, you can save your development to a remote repository using <code>git push origin main</code> or release your code to the public via <code>git push origin v0.0.1</code> or push all tags using <code>git push origin --tags</code>. For the most straightforward way to publish to <em>GitHub Pages</em> immediately after everything is setup, use <code>git push origin main --tags</code>.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -463,7 +463,7 @@ Warning
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">git-cliff</span> <span class="at">-o</span> CHANGELOG.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Also, you need to commit a change on <code>CHANGELOG.md</code> for a website to be rendered correctly.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Commit auto-generated CHANGELOG.md file</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"chore(release): update </span><span class="kw">`</span><span class="ex">CHANGELOG.md</span><span class="kw">`</span><span class="st"> for v0.0.1"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Of course, you also want to skip documenting commits for <code>CHANGELOG.md</code> as it will be automatically created to the release before publishing. To do this adding specific commits by their SHA1 value in the <code>.cliffignore</code> file. You can do that via a bash command:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Append the latest commit (a commit for CHANGELOG.md) to .cliffignore file</span></span>

@@ -132,7 +132,7 @@ flowchart LR;
 The best practice is to do `git commit` frequently and when you want to release your code, using `git tag` to check out your code locally. After that, using `git push` to also check out your code to the remote repository.
 
 :::{.callout-tip}
-you can use for example, `git tag -a v0.0.1 -m "version 0.0.1 - soft launch"` to tag your code after a few commits. Also, you can save your development to a remote repository using `git push origin main` or release your code to the public via `git push origin v0.0.1` or push all tags using `git push origin --tags`.
+you can use for example, `git tag -a v0.0.1 -m "version 0.0.1 - soft launch"` to tag your code after a few commits. Also, you can save your development to a remote repository using `git push origin main` or release your code to the public via `git push origin v0.0.1` or push all tags using `git push origin --tags`. For the most straightforward way to publish to *GitHub Pages* immediately after everything is setup, use `git push origin main --tags`.
 :::
 
 :::{.callout-warning}
@@ -187,7 +187,7 @@ Also, you need to commit a change on `CHANGELOG.md` for a website to be rendered
 
 ```bash
 # Commit auto-generated CHANGELOG.md file
-git add
+git add .
 git commit -m "chore(release): update `CHANGELOG.md` for v0.0.1"
 ```
 

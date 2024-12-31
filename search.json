@@ -4,7 +4,7 @@
     "href": "CHANGELOG.html",
     "title": "Changelog",
     "section": "",
-    "text": "All notable changes to this project will be documented in this file.\n\n\n\n\n\n\n\nAdd suggesting dev brance for more efficient GitHub Pages rendering\n\n\n\n\n\n\n\n\nFix CI/CD trigger to publish when pushing to main branch\n\n\n\n\n\n\n\n\n\n\n\nFix typo on CHANGELOG documentation\n\n\n\n\n\n\n\n\n\n\n\nAdd detail workflow to using git-cliff smoothly\n\n\n\n\n\n\n\n\n\n\n\nAdd way to automatically add skipping commits to .cliffignore file\n\n\n\n\n\n\n\n\n\n\n\nFix how to handle the file in a release\n\n\n\n\n\n\n\n\nIgnore skip commits in file\n\n\n\n\n\n\n\n\n\n\n\nAdd documentation on how to handle the CHANGELOG.md in a release\n\n\n\n\n\n\n\n\n\n\n\nAdd git-cliff documentation like as a reference\n\n\n\n\n\nChange to use CHANGELOG.md\n\n\n\n\n\nAdd CHANGELOG documentation section\n\n\n\n\n\n\n\n\nIgnore git-cliff configuration file\n\n\n\n\n\nFix CI/CD trigger to publish only if v tag was pushed\n\n\n\n\n\n\n\n\n\n\n\nIgnore generate-changelog file\n\n\n\n\n\nAdd version history and changelog references\n\n\n\n\n\n\n\n\n\n\n\nIgnore git-chglog configuration file",
+    "text": "All notable changes to this project will be documented in this file.\n\n\n\n\n\n(workflow) Add tips on the Quarto workflow\n\n\n\n\n\n\n\n\n(workflow) Add suggesting dev brance for more efficient GitHub Pages rendering\n\n\n\n\n\n(publish) Fix CI/CD trigger to publish when pushing to main branch\n\n\n\n\n\n\n\n\n(workflow) Fix typo on CHANGELOG documentation\n\n\n\n\n\n\n\n\n(workflow) Add detail workflow to using git-cliff smoothly\n\n\n\n\n\n\n\n\n(workflow) Add way to automatically add skipping commits to .cliffignore file\n\n\n\n\n\n\n\n\n(workflow) Fix how to handle the file in a release\n\n\n\n\n\n(.gitignore) Ignore skip commits in file\n\n\n\n\n\n\n\n\n(workflow) Add documentation on how to handle the CHANGELOG.md in a release\n\n\n\n\n\n\n\n\n(references) Add git-cliff documentation like as a reference\n(sidebar) Change to use CHANGELOG.md\n(workflow) Add CHANGELOG documentation section\n\n\n\n\n\n(.gitignore) Ignore git-cliff configuration file\n(publish) Fix CI/CD trigger to publish only if v tag was pushed\n\n\n\n\n\n\n\n\n(config) Ignore generate-changelog file\n(references) Add version history and changelog references\n\n\n\n\n\n\n\n\nIgnore git-chglog configuration file",
     "crumbs": [
       "Changelog"
     ]
@@ -14,7 +14,7 @@
     "href": "CHANGELOG.html#section",
     "title": "Changelog",
     "section": "",
-    "text": "Add suggesting dev brance for more efficient GitHub Pages rendering\n\n\n\n\n\n\n\n\nFix CI/CD trigger to publish when pushing to main branch",
+    "text": "(workflow) Add tips on the Quarto workflow",
     "crumbs": [
       "Changelog"
     ]
@@ -24,7 +24,7 @@
     "href": "CHANGELOG.html#section-1",
     "title": "Changelog",
     "section": "",
-    "text": "Fix typo on CHANGELOG documentation",
+    "text": "(workflow) Add suggesting dev brance for more efficient GitHub Pages rendering\n\n\n\n\n\n(publish) Fix CI/CD trigger to publish when pushing to main branch",
     "crumbs": [
       "Changelog"
     ]
@@ -34,7 +34,7 @@
     "href": "CHANGELOG.html#section-2",
     "title": "Changelog",
     "section": "",
-    "text": "Add detail workflow to using git-cliff smoothly",
+    "text": "(workflow) Fix typo on CHANGELOG documentation",
     "crumbs": [
       "Changelog"
     ]
@@ -44,7 +44,7 @@
     "href": "CHANGELOG.html#section-3",
     "title": "Changelog",
     "section": "",
-    "text": "Add way to automatically add skipping commits to .cliffignore file",
+    "text": "(workflow) Add detail workflow to using git-cliff smoothly",
     "crumbs": [
       "Changelog"
     ]
@@ -54,7 +54,7 @@
     "href": "CHANGELOG.html#section-4",
     "title": "Changelog",
     "section": "",
-    "text": "Fix how to handle the file in a release\n\n\n\n\n\n\n\n\nIgnore skip commits in file",
+    "text": "(workflow) Add way to automatically add skipping commits to .cliffignore file",
     "crumbs": [
       "Changelog"
     ]
@@ -64,7 +64,7 @@
     "href": "CHANGELOG.html#section-5",
     "title": "Changelog",
     "section": "",
-    "text": "Add documentation on how to handle the CHANGELOG.md in a release",
+    "text": "(workflow) Fix how to handle the file in a release\n\n\n\n\n\n(.gitignore) Ignore skip commits in file",
     "crumbs": [
       "Changelog"
     ]
@@ -74,7 +74,7 @@
     "href": "CHANGELOG.html#section-6",
     "title": "Changelog",
     "section": "",
-    "text": "Add git-cliff documentation like as a reference\n\n\n\n\n\nChange to use CHANGELOG.md\n\n\n\n\n\nAdd CHANGELOG documentation section\n\n\n\n\n\n\n\n\nIgnore git-cliff configuration file\n\n\n\n\n\nFix CI/CD trigger to publish only if v tag was pushed",
+    "text": "(workflow) Add documentation on how to handle the CHANGELOG.md in a release",
     "crumbs": [
       "Changelog"
     ]
@@ -84,7 +84,7 @@
     "href": "CHANGELOG.html#section-7",
     "title": "Changelog",
     "section": "",
-    "text": "Ignore generate-changelog file\n\n\n\n\n\nAdd version history and changelog references",
+    "text": "(references) Add git-cliff documentation like as a reference\n(sidebar) Change to use CHANGELOG.md\n(workflow) Add CHANGELOG documentation section\n\n\n\n\n\n(.gitignore) Ignore git-cliff configuration file\n(publish) Fix CI/CD trigger to publish only if v tag was pushed",
     "crumbs": [
       "Changelog"
     ]
@@ -92,6 +92,16 @@
   {
     "objectID": "CHANGELOG.html#section-8",
     "href": "CHANGELOG.html#section-8",
+    "title": "Changelog",
+    "section": "",
+    "text": "(config) Ignore generate-changelog file\n(references) Add version history and changelog references",
+    "crumbs": [
+      "Changelog"
+    ]
+  },
+  {
+    "objectID": "CHANGELOG.html#section-9",
+    "href": "CHANGELOG.html#section-9",
     "title": "Changelog",
     "section": "",
     "text": "Ignore git-chglog configuration file",
